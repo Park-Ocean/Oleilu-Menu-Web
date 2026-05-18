@@ -33,10 +33,10 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
       <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl my-8">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="font-display text-2xl font-black text-[#50768C]">{title}</h2>
+          <h2 className="font-display text-2xl font-black text-[#0d2096]">{title}</h2>
           <button
             onClick={onClose}
-            className="text-[#8D7A6A] hover:text-[#50768C]"
+            className="text-[#0d2096] hover:text-[#0d2096]"
           >
             <X size={24} />
           </button>
@@ -45,21 +45,21 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
         <form onSubmit={onSave} className="space-y-4">
           {/* Nombre */}
           <div>
-            <label className="block text-xs font-bold text-[#50768C] mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-[#0d2096] mb-2 uppercase tracking-wider">
               Nombre
             </label>
             <input
               type="text"
               value={product.name || ""}
               onChange={(e) => handleFieldChange("name", e.target.value)}
-              className="w-full p-3 border-2 border-[#DBCBB4] rounded-xl focus:border-[#50768C] outline-none"
+              className="w-full p-3 border-2 border-[#fdf5cc] rounded-xl focus:border-[#0d2096] outline-none"
               required
             />
           </div>
 
           {/* Categoría Dinámica */}
           <div>
-            <label className="block text-xs font-bold text-[#423838] mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-[#0d2096] mb-2 uppercase tracking-wider">
               Categoría
             </label>
 
@@ -68,7 +68,7 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
                 <select
                   value={product.category || ""}
                   onChange={handleSelectChange}
-                  className="w-full p-3 border-2 border-[#DBCBB4] rounded-xl focus:border-[#50768C] outline-none appearance-none bg-white cursor-pointer"
+                  className="w-full p-3 border-2 border-[#fdf5cc] rounded-xl focus:border-[#0d2096] outline-none appearance-none bg-white cursor-pointer"
                   required
                 >
                   <option value="" disabled>
@@ -87,7 +87,7 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
                   </option>
                 </select>
                 <ChevronDown
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8D7A6A] pointer-events-none"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#0d2096] pointer-events-none"
                   size={18}
                 />
               </div>
@@ -101,7 +101,7 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
                   onChange={(e) =>
                     handleFieldChange("category", e.target.value)
                   }
-                  className="flex-1 p-3 border-2 border-[#50768C] rounded-xl outline-none bg-[#F5EBE1]"
+                  className="flex-1 p-3 border-2 border-[#0d2096] rounded-xl outline-none bg-[#fcfcfc]"
                   required
                 />
                 <button
@@ -110,7 +110,7 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
                     setIsAddingNew(false);
                     handleFieldChange("category", "");
                   }}
-                  className="p-3 border-2 border-[#DBCBB4] rounded-xl text-[#8D7A6A] hover:text-[#50768C] transition-colors"
+                  className="p-3 border-2 border-[#fdf5cc] rounded-xl text-[#0d2096] hover:text-[#0d2096] transition-colors"
                   title="Volver a la lista"
                 >
                   <RotateCcw size={20} />
@@ -121,7 +121,7 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
 
           {/* Precio */}
           <div>
-            <label className="block text-xs font-bold text-[#423838] mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-[#0d2096] mb-2 uppercase tracking-wider">
               Precio (CLP)
             </label>
             <input
@@ -130,19 +130,19 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
               onChange={(e) =>
                 handleFieldChange("price", parseInt(e.target.value) || 0)
               }
-              className="w-full p-3 border-2 border-[#EBE3D5] rounded-xl focus:border-[#423838] outline-none"
+              className="w-full p-3 border-2 border-[#EBE3D5] rounded-xl focus:border-[#0d2096] outline-none"
               required
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-[#423838] mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-[#0d2096] mb-2 uppercase tracking-wider">
               Descripción (Opcional)
             </label>
             <textarea
               value={product.description || ''}
               onChange={(e) => handleFieldChange('description', e.target.value)}
-              className="w-full p-3 border-2 border-[#DBCBB4] rounded-xl focus:outline-none focus:border-[#50768C] transition-colors resize-none"
+              className="w-full p-3 border-2 border-[#fdf5cc] rounded-xl focus:outline-none focus:border-[#0d2096] transition-colors resize-none"
               placeholder="Descripción breve del producto"
               rows="3"
             />
@@ -153,13 +153,13 @@ export default function ProductEditor({ product, onSave, onClose, onChange, cate
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-3 border-2 border-[#DBCBB4] rounded-xl font-bold text-[#50768C]"
+              className="flex-1 py-3 border-2 border-[#fdf5cc] rounded-xl font-bold text-[#0d2096]"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 py-3 bg-[#50768C] text-white rounded-xl font-bold flex items-center justify-center gap-2"
+              className="flex-1 py-3 bg-[#0d2096] text-white rounded-xl font-bold flex items-center justify-center gap-2"
             >
               <Save size={18} /> Guardar
             </button>

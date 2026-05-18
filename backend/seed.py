@@ -4,382 +4,434 @@ from security import get_password_hash
 
 models.Base.metadata.create_all(bind=engine)
 
-# DATOS DE LA CARTA COFFEE BEANS
+# DATOS DE LA CARTA OLEILU
 MENU_ITEMS = [
-    # --- CAFETERÍA - BEBIDAS CALIENTES ---
+
+    # --- BRUNCH (todos los días hasta las 12:30) ---
     {
-        "name": "ESPRESSO SIMPLE",
-        "category": "Bebidas Calientes",
-        "price": 2400,
-        "description": "Espresso simple tradicional."
+        "name": "BRUNCH BENEDICTINO",
+        "category": "Brunch",
+        "price": 13500,
+        "description": "Elige tu tostón benedictino tocino o salmón, un café a elección y jugo o limonada."
     },
     {
-        "name": "FLAT WHITE",
-        "category": "Bebidas Calientes",
-        "price": 3200,
-        "description": "Flat white cremoso."
+        "name": "DESAYUNO COMPLETO",
+        "category": "Brunch",
+        "price": 15000,
+        "description": "Huevos revueltos, tocino y palta. Camote o tostadas de masa madre. Café a elección, medialuna o queque y jugo o limonada a elección."
     },
     {
-        "name": "ESPRESSO DOBLE",
-        "category": "Bebidas Calientes",
-        "price": 2800,
-        "description": "Espresso doble concentrado."
-    },
-    {
-        "name": "LATTE",
-        "category": "Bebidas Calientes",
-        "price": 3500,
-        "description": "Café latte con leche vaporizada."
-    },
-    {
-        "name": "AMERICANO",
-        "category": "Bebidas Calientes",
-        "price": 2800,
-        "description": "Café americano clásico."
-    },
-    {
-        "name": "MACCHIATO",
-        "category": "Bebidas Calientes",
-        "price": 2700,
-        "description": "Espresso con toque de leche vaporizada."
-    },
-    {
-        "name": "CAPUCCINO",
-        "category": "Bebidas Calientes",
-        "price": 3200,
-        "description": "Capuccino clásico con espuma de leche."
-    },
-    {
-        "name": "CAFÉ FILTRADO",
-        "category": "Bebidas Calientes",
-        "price": 5000,
-        "description": "Café de especialidad preparado por filtrado."
-    },
-    {
-        "name": "CAPUCCINO DOBLE",
-        "category": "Bebidas Calientes",
-        "price": 3900,
-        "description": "Capuccino con doble shot de espresso."
+        "name": "BRUNCH CLÁSICO",
+        "category": "Brunch",
+        "price": 14000,
+        "description": "Sandwich El Fundido, elige tu bollería preferida, café a elección y jugo o limonada."
     },
 
-    # --- CAFETERÍA - OTRAS BEBIDAS CALIENTES ---
+    # --- ALMUERZO OLEILU (12:30 a 15:30) ---
     {
-        "name": "MOCCA",
-        "category": "Otras Bebidas Calientes",
-        "price": 3600,
-        "description": "Café con chocolate caliente."
-    },
-    {
-        "name": "CHOCOLATE",
-        "category": "Otras Bebidas Calientes",
-        "price": 3200,
-        "description": "Chocolate caliente cremoso."
-    },
-    {
-        "name": "MATCHA LATTE",
-        "category": "Otras Bebidas Calientes",
-        "price": 3500,
-        "description": "Latte de matcha con leche vaporizada."
-    },
-    {
-        "name": "CHAI LATTE",
-        "category": "Otras Bebidas Calientes",
-        "price": 3000,
-        "description": "Latte de chai especiado."
-    },
-    {
-        "name": "DIRTY CHAI",
-        "category": "Otras Bebidas Calientes",
-        "price": 3600,
-        "description": "Chai latte con shot de espresso."
-    },
-    {
-        "name": "TAZA DE TÉ",
-        "category": "Otras Bebidas Calientes",
-        "price": 2800,
-        "description": "Taza de té a elección."
+        "name": "SÁNDWICH, PAPITAS Y BEBIDA",
+        "category": "Almuerzo",
+        "price": 13000,
+        "description": "Elige cualquiera de nuestros sándwiches con agregado de mix de papas y camote frito. Además una bebida o limonada. Cambia tu bebida por una cerveza hasta pronto por $2000 adicionales."
     },
 
-    # --- CAFETERÍA - BEBIDAS FRÍAS ---
+    # --- DESAYUNO / BRUNCH (carta individual) ---
     {
-        "name": "EARLY RUSH (TÉ FRÍO)",
-        "category": "Bebidas Frías",
-        "price": 3000,
-        "description": "Té frío refrescante."
+        "name": "BENEDICTINOS TOCINO",
+        "category": "Desayuno Brunch",
+        "price": 10500,
+        "description": "Tostón de pan brioche, huevos pochados, tocino y salsa holandesa. Alternativa vegetariana con palta."
     },
     {
-        "name": "KOMBUCHA",
-        "category": "Bebidas Frías",
-        "price": 3200,
-        "description": "Kombucha artesanal fermentada."
+        "name": "BENEDICTINOS SALMÓN",
+        "category": "Desayuno Brunch",
+        "price": 11500,
+        "description": "Tostón de pan brioche, huevos pochados, salmón ahumado, salsa holandesa y furikake."
     },
     {
-        "name": "MATCHA FRÍO",
-        "category": "Bebidas Frías",
-        "price": 3800,
-        "description": "Matcha preparado en frío."
+        "name": "SANDWICH OLEILÚ",
+        "category": "Desayuno Brunch",
+        "price": 9900,
+        "description": "Omelette, straciattela, pesto de albahaca y tocino. En pan brioche."
     },
     {
-        "name": "ZUMO MANDARINA",
-        "category": "Bebidas Frías",
-        "price": 3200,
-        "description": "Jugo de mandarina natural prensado."
+        "name": "DESAYUNO CLÁSICO",
+        "category": "Desayuno Brunch",
+        "price": 9900,
+        "description": "Huevos revueltos, tocino y palta. Alternativa de camote o tostadas de masa madre."
     },
     {
-        "name": "ESPRESSO TONIC",
-        "category": "Bebidas Frías",
-        "price": 3300,
-        "description": "Espresso sobre agua tónica."
-    },
-    {
-        "name": "ESPRESSO TANGERINE",
-        "category": "Bebidas Frías",
-        "price": 3500,
-        "description": "Espresso con mandarina."
-    },
-    {
-        "name": "AGUA EN BOTELLA",
-        "category": "Bebidas Frías",
-        "price": 2000,
-        "description": "Agua mineral en botella."
-    },
-
-    # --- CAFETERÍA - EXTRAS ---
-    {
-        "name": "LECHE VEGETAL",
-        "category": "Extras",
-        "price": 500,
-        "description": "Leche vegetal a elección."
-    },
-    {
-        "name": "TOCINO O PALTA",
-        "category": "Extras",
-        "price": 1500,
-        "description": "Porción de tocino o palta."
-    },
-    {
-        "name": "HUEVOS",
-        "category": "Extras",
-        "price": 1000,
-        "description": "Porción de huevos."
-    },
-    {
-        "name": "SHOT DE CAFÉ",
-        "category": "Extras",
-        "price": 700,
-        "description": "Shot extra de espresso."
-    },
-    {
-        "name": "PORCIÓN DE PAN",
-        "category": "Extras",
-        "price": 1000,
-        "description": "Porción de pan."
-    },
-    {
-        "name": "PORCIÓN DE FRUTA",
-        "category": "Extras",
-        "price": 2500,
-        "description": "Porción de fruta fresca de temporada."
-    },
-
-    # --- PASTELERÍA - TARTAS ---
-    {
-        "name": "TIRAMISÚ RECETA TRADICIONAL",
-        "category": "Pastelería",
-        "price": 3500,
-        "description": "Tiramisú preparado con receta tradicional italiana."
-    },
-    {
-        "name": "TORTA DE ZANAHORIA",
-        "category": "Pastelería",
-        "price": 3500,
-        "description": "Torta de zanahoria con toque de manjar para endulzar el día."
-    },
-    {
-        "name": "TARTA SUECA DE CHOCOLATE",
-        "category": "Pastelería",
-        "price": 2800,
-        "description": "Tarta sueca de chocolate artesanal."
-    },
-    {
-        "name": "CHEESECAKE DE ESPRESSO",
-        "category": "Pastelería",
-        "price": 3200,
-        "description": "Cheesecake con base de espresso."
-    },
-    {
-        "name": "TARTA DE FRUTOS ROJOS",
-        "category": "Pastelería",
-        "price": 2900,
-        "description": "Tarta artesanal de frutos rojos."
-    },
-
-    # --- BOLLERÍA ---
-    {
-        "name": "WAFFLE AZUCARADO",
-        "category": "Bollería",
-        "price": 2300,
-        "description": "Waffle clásico con azúcar."
-    },
-    {
-        "name": "WAFFLE CREMA Y FRUTA",
-        "category": "Bollería",
-        "price": 3000,
-        "description": "Waffle con crema y frutas frescas."
-    },
-    {
-        "name": "PAN DE CHOCOLATE",
-        "category": "Bollería",
-        "price": 2200,
-        "description": "Pan de chocolate artesanal."
-    },
-    {
-        "name": "ROLLITO DE CANELA",
-        "category": "Bollería",
-        "price": 2300,
-        "description": "Rollito de canela esponjoso."
-    },
-    {
-        "name": "CROISSANT",
-        "category": "Bollería",
-        "price": 1800,
-        "description": "Croissant clásico de mantequilla."
-    },
-    {
-        "name": "CROISSANT DULCE RELLENO",
-        "category": "Bollería",
-        "price": 2950,
-        "description": "Croissant relleno dulce."
-    },
-    {
-        "name": "CROISSANT SALAME O JAMÓN/QUESO",
-        "category": "Bollería",
-        "price": 2950,
-        "description": "Croissant salado relleno de salame o jamón con queso."
-    },
-
-    # --- BOLLERÍA - ESPECIAL ---
-    {
-        "name": "TOSTADA FRANCESA (Receta Coffee Beans)",
-        "category": "Bollería",
-        "price": 5100,
-        "description": "Deliciosa tostada caramelizada, rellena de centro cremoso y almendras laminadas, coronada con pompón de crema batida y frutas de estación, acompañada con una porción de Miel de Maple para endulzar tu día."
-    },
-
-    # --- DESAYUNOS ---
-    {
-        "name": "DESAYUNO AMERICANO",
-        "category": "Desayunos",
-        "price": 8300,
-        "description": "Deliciosos huevos cremosos, acompañados con tocino, tostadas frescas, café o té, jugo de mandarina, mermelada y un lingote de vainilla. Disponible hasta las 12am."
-    },
-    {
-        "name": "COLOMBIANO",
-        "category": "Desayunos",
-        "price": 8500,
-        "description": "Huevos coloridos (cebolla y tomate) acompañados con porción de arepitas de maíz, porción de queso fresco, pandebonos 2 unid (pan de queso), café o chocolate. Disponible hasta las 12am."
-    },
-    {
-        "name": "BOWL DE GRANOLA",
-        "category": "Desayunos",
-        "price": 6700,
-        "description": "Granola fresca preparada en casa, sobre una cama de yogurt natural, fruta fresca de temporada endulzada con miel, zumo prensado de mandarina o café. Disponible hasta las 12am."
-    },
-
-    # --- TOSTADAS SALADAS Y DULCES ---
-    {
-        "name": "RAYO DE SOL",
-        "category": "Tostadas",
-        "price": 8100,
-        "description": "Pan blanco de masa madre. Mango en trozo grillado y caramelizado, sobre una base de pesto, acompañado con queso de cabra y aromatizado con dressing balsámico, una pizca de merquén que aporta profundidad al sabor."
-    },
-    {
-        "name": "HUEVOS TURCOS",
-        "category": "Tostadas",
-        "price": 6800,
-        "description": "Pan de masa madre. Dos huevos poché sobre una salsa de yogur natural con perejil y ajo, deliciosos triángulos de tostadas, bañado con aceite de paprica un poco picante."
-    },
-    {
-        "name": "COFFEE BLOOM",
-        "category": "Tostadas",
-        "price": 5900,
-        "description": "Pan blanco de masa madre. Carne mechada preparada al horno con finas hierbas a cocción lenta, acompañado con tomate cherry confitado en una cama de lechuga y bañado en una salsa de café fresco tostado por nosotros."
-    },
-    {
-        "name": "BENEDICTA ITALIANA",
-        "category": "Tostadas",
-        "price": 5800,
-        "description": "Pan blanco de masa madre. Salsa pomodoro fresca coronada con huevos poche, aromatizada con aceite de albahaca y delicioso queso cabra."
-    },
-    {
-        "name": "HOLANDESA",
-        "category": "Tostadas",
-        "price": 5800,
-        "description": "Pan semilla masa madre. También opción vegetariana. Deliciosos huevos pochados, bañados en cremosa salsa holandesa, acompañados con láminas de tocino o palta (opción vegetariana), ciboulette, toques de pimienta y coronado con hermosos brotes verdes."
-    },
-    {
-        "name": "PURPLE BLISS",
-        "category": "Tostadas",
-        "price": 5100,
-        "description": "Pan semilla de masa madre. Delicioso hummus de betarraga con un toque especial del chef, para hacerlo más cremoso. Acompañado de palta, aromatizado con aceite de cilantro y cilantro fresco finamente picado."
-    },
-
-    # --- SÁNDWICHES ---
-    {
-        "name": "TOSCANO",
-        "category": "Sándwiches",
-        "price": 8200,
-        "description": "Pan blanco de masa madre. Delicioso queso boconccini sobre una base de pesto hecho en casa, acompañado con tomate cherry confitados, aromatizado con aceite de albahaca y una pizca de sal gruesa."
-    },
-    {
-        "name": "FOCACCIA RUSTIC",
-        "category": "Sándwiches",
-        "price": 6800,
-        "description": "Pan hecho en casa. Carne laminada, horneada en cocción lenta acompañada con un mix de hojas verdes, aderezado con una aromática mermelada de pimentón y acompañada de tomate confitado."
-    },
-    {
-        "name": "MEDITERRANEO CRUNCH",
-        "category": "Sándwiches",
-        "price": 5400,
-        "description": "Pan blanco. Vegetariano. Berenjena crispy, zapallos confitados acompañados con pasta de aceituna verde, albahaca y mizuna, tomate cherry fresco y salsa pomodoro."
-    },
-    {
-        "name": "SMOKY CHICKEN GREENS",
-        "category": "Sándwiches",
-        "price": 5500,
-        "description": "Pan blanco masa madre. Pollo perfectamente grillado acompañado de cebollas a la barbecue, y champiñones a la mantequilla, sobre una cama de mix de lechugas frescas."
+        "name": "TOSTÓN VEGANO",
+        "category": "Desayuno Brunch",
+        "price": 8900,
+        "description": "Tostón de masa madre, humus, salteado de verduras, tomates cherry y semillas de zapallo.",
+        "tags": ["vegano"]
     },
 
     # --- ENSALADAS ---
     {
-        "name": "TROPICO",
+        "name": "CAESAR CLÁSICA",
         "category": "Ensaladas",
-        "price": 6200,
-        "description": "Ensalada con trozos de mango, queso de cabra y nueces, sobre un mix de hojas verdes, acompañado con un delicioso dressing hecho con compota de mango fresca, aromatizado con cardamomo y otros secretos del chef."
+        "price": 12500,
+        "description": "Mix de hojas verdes, milanesa de pollo, cubos de palta, tomate cherry, crutones caseros, cebolla morada, topping de parmesano y dressing caesar de la casa."
     },
     {
-        "name": "DEL HUERTO",
+        "name": "LENTEJAS VEGAN",
         "category": "Ensaladas",
-        "price": 5800,
-        "description": "Pollo grillado, tomates frescos, trozos de pepino, aros de cebollas moradas, champiñones al ajillo, aceitunas negras, en una cama de lechugas y aderezado con una limoneta endulzada con miel de maple."
+        "price": 12500,
+        "description": "Mix de hojas verdes, lentejas con vinagreta de comino, cubos de palta, tomates cherry, camote asado, crutones caseros y topping de semillas.",
+        "tags": ["vegano"]
     },
     {
-        "name": "FRUIT PUNCH",
+        "name": "AGREGADO PAPITAS",
         "category": "Ensaladas",
+        "price": 2500,
+        "description": "Mix de papas y camote frito."
+    },
+
+    # --- SANDWICHES ---
+    {
+        "name": "CUBANITO",
+        "category": "Sandwiches",
+        "price": 10900,
+        "description": "Jamón artesanal, lomo de cerdo asado, pepinillos, mostaza, queso cheddar y queso gouda. En pan de masa madre."
+    },
+    {
+        "name": "BERENJENA SPICY",
+        "category": "Sandwiches",
+        "price": 8900,
+        "description": "Milanesa de berenjena, salsa de ají fermentado, hojas verdes. En focaccia."
+    },
+    {
+        "name": "EL FUNDIDO",
+        "category": "Sandwiches",
+        "price": 7900,
+        "description": "Jamón artesanal, queso gouda y queso cheddar. En pan brioche."
+    },
+    {
+        "name": "CRUNCHY CAESAR",
+        "category": "Sandwiches",
+        "price": 11300,
+        "description": "Pollo apanado, cebolla morada, pesto de la casa, hojas verdes y dressing caesar de la casa. En focaccia. Alternativa vegetariana con berenjena apanada."
+    },
+    {
+        "name": "SIERRA MELT",
+        "category": "Sandwiches",
+        "price": 8900,
+        "description": "Sierra ahumada artesanal, en salsa tártara, queso gauda y queso cheddar fundido. En pan de masa madre."
+    },
+    {
+        "name": "SEA CROISSANT",
+        "category": "Sandwiches",
+        "price": 12500,
+        "description": "Slice de salmón ahumado, con palta laminada, ricota y rúcula con una reducción de aceto balsámico en croissant."
+    },
+
+    # --- PASTELERÍA ---
+    {
+        "name": "ROLLO DE CANELA",
+        "category": "Pastelería",
+        "price": 3200,
+        "description": "Rollo de canela artesanal."
+    },
+    {
+        "name": "MEDIALUNA",
+        "category": "Pastelería",
+        "price": 2500,
+        "description": "Medialuna artesanal."
+    },
+    {
+        "name": "CROISSANT",
+        "category": "Pastelería",
+        "price": 2800,
+        "description": "Croissant artesanal."
+    },
+    {
+        "name": "CARROT CAKE",
+        "category": "Pastelería",
+        "price": 3000,
+        "description": "Carrot cake artesanal."
+    },
+    {
+        "name": "CHOCO BANANA BREAD",
+        "category": "Pastelería",
+        "price": 2800,
+        "description": "Choco banana bread artesanal."
+    },
+    {
+        "name": "BROWNIE",
+        "category": "Pastelería",
+        "price": 4000,
+        "description": "Con nueces y ganache de chocolate Neucober 72%."
+    },
+    {
+        "name": "CROISSANT OLEILÚ",
+        "category": "Pastelería",
+        "price": 5500,
+        "description": "Crema pastelera de Earl Grey y naranja confitada."
+    },
+    {
+        "name": "CROISSANT GIANDUJA",
+        "category": "Pastelería",
+        "price": 6000,
+        "description": "Nutella y frutos rojos."
+    },
+    {
+        "name": "CROISSANT MANJAR",
+        "category": "Pastelería",
+        "price": 5500,
+        "description": "Manjar, topping de almendras y azúcar flor."
+    },
+    {
+        "name": "TOSTÓN FRANCÉS",
+        "category": "Pastelería",
+        "price": 7000,
+        "description": "Tostón de pan brioche rebozado, fruta de estacionalidad y yogur montado."
+    },
+    {
+        "name": "PANCAKES",
+        "category": "Pastelería",
+        "price": 7000,
+        "description": "Topping de yogur montado, miel de palma y fruta de estación."
+    },
+
+    # --- COOKIES ---
+    {
+        "name": "COOKIE CHIP DE CHOCOLATE",
+        "category": "Cookies",
+        "price": 3500,
+        "description": "Clásica galleta de vainilla con trozos de chocolate semi amargo."
+    },
+    {
+        "name": "COOKIE MATCHA & FRAMBUESA",
+        "category": "Cookies",
+        "price": 3500,
+        "description": "Galleta de matcha y chocolate blanco con insert de mermelada de frambuesa."
+    },
+    {
+        "name": "COOKIE LEMON PIE",
+        "category": "Cookies",
+        "price": 3500,
+        "description": "Relleno de crema de limón y topping de merengue."
+    },
+    {
+        "name": "COOKIE CHEESECAKE ARÁNDANO",
+        "category": "Cookies",
+        "price": 3200,
+        "description": "Relleno de queso crema y arándanos."
+    },
+    {
+        "name": "COOKIE MANÍ & SALTED CARAMEL",
+        "category": "Cookies",
+        "price": 3200,
+        "description": "Relleno de pasta de maní y salsa de caramelo salado."
+    },
+    {
+        "name": "COOKIE APPLE TOFFEE",
+        "category": "Cookies",
+        "price": 3200,
+        "description": "Con nueces, manzana caramelizada y salsa toffee."
+    },
+
+    # --- CAFETERÍA ---
+    {
+        "name": "ESPRESSO SIMPLE",
+        "category": "Cafetería",
+        "price": 2400,
+        "description": "Espresso simple. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "ESPRESSO DOBLE",
+        "category": "Cafetería",
+        "price": 2800,
+        "description": "Espresso doble. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "AMERICANO SIMPLE",
+        "category": "Cafetería",
+        "price": 2800,
+        "description": "Americano simple. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "AMERICANO DOBLE",
+        "category": "Cafetería",
+        "price": 3200,
+        "description": "Americano doble. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "CAPUCCINO SIMPLE",
+        "category": "Cafetería",
+        "price": 3290,
+        "description": "Capuccino simple. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "CAPUCCINO DOBLE",
+        "category": "Cafetería",
+        "price": 3590,
+        "description": "Capuccino doble. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "MOCACCINO",
+        "category": "Cafetería",
+        "price": 4000,
+        "description": "Mocaccino. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "LATTE",
+        "category": "Cafetería",
+        "price": 3590,
+        "description": "Latte. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "FLAT WHITE",
+        "category": "Cafetería",
         "price": 3800,
-        "description": "Mix de frutas de estación, hojas de menta fresca y rica salsa de frutos rojos al vino tinto, acompañado con mermelada de fruta."
+        "description": "Flat white. Café italiano premium marca Vergnano."
+    },
+    {
+        "name": "CHAI LATTE",
+        "category": "Cafetería",
+        "price": 3500,
+        "description": "Chai latte."
+    },
+    {
+        "name": "DIRTY CHAI LATTE",
+        "category": "Cafetería",
+        "price": 4000,
+        "description": "Dirty chai latte."
+    },
+    {
+        "name": "MATCHA LATTE",
+        "category": "Cafetería",
+        "price": 3500,
+        "description": "Matcha latte."
+    },
+    {
+        "name": "TÉ",
+        "category": "Cafetería",
+        "price": 2000,
+        "description": "Té."
+    },
+    {
+        "name": "AGREGADO LECHE VEGETAL",
+        "category": "Cafetería",
+        "price": 500,
+        "description": "Not milk o soya."
+    },
+    {
+        "name": "SHOT DE SYRUP",
+        "category": "Cafetería",
+        "price": 500,
+        "description": "Vainilla o caramelo."
+    },
+    {
+        "name": "DESCAFEINADO",
+        "category": "Cafetería",
+        "price": 300,
+        "description": "Agregado descafeinado."
+    },
+    {
+        "name": "ICED",
+        "category": "Cafetería",
+        "price": 300,
+        "description": "Agregado para bebida helada."
+    },
+
+    # --- CERVEZAS ---
+    {
+        "name": "CERVEZA HASTA PRONTO",
+        "category": "Cervezas",
+        "price": 5000,
+        "description": "Mientras Tanto Amber Ale o Tiempo Libre Lager."
+    },
+    {
+        "name": "MICHELADA",
+        "category": "Cervezas",
+        "price": 4500,
+        "description": "Cerveza lager, borde de sal y merquén, jugo de limón y salsa inglesa."
+    },
+    {
+        "name": "CHELADA",
+        "category": "Cervezas",
+        "price": 4000,
+        "description": "Cerveza lager, borde de sal y jugo de limón."
+    },
+
+    # --- MOCKTAILS ---
+    {
+        "name": "GOLDEN GINGER",
+        "category": "Mocktails",
+        "price": 5000,
+        "description": "Mezcla de jugo de piña y limón, jengibre y agua tónica."
+    },
+    {
+        "name": "ESPRESSO TONIC",
+        "category": "Mocktails",
+        "price": 5500,
+        "description": "Shot de espresso con agua tónica."
+    },
+    {
+        "name": "LIMONADA",
+        "category": "Mocktails",
+        "price": 4000,
+        "description": "Simple, Menta o Menta Jengibre."
+    },
+    {
+        "name": "JUGO VARIEDADES",
+        "category": "Mocktails",
+        "price": 4000,
+        "description": "Jugo de frutas variadas."
+    },
+
+    # --- BEBIDAS ---
+    {
+        "name": "COCA COLA",
+        "category": "Bebidas",
+        "price": 2500,
+        "description": "Coca Cola."
+    },
+    {
+        "name": "COCA COLA ZERO",
+        "category": "Bebidas",
+        "price": 2500,
+        "description": "Coca Cola Zero."
+    },
+    {
+        "name": "SPRITE",
+        "category": "Bebidas",
+        "price": 2500,
+        "description": "Sprite."
+    },
+    {
+        "name": "SPRITE ZERO",
+        "category": "Bebidas",
+        "price": 2500,
+        "description": "Sprite Zero."
+    },
+    {
+        "name": "FANTA",
+        "category": "Bebidas",
+        "price": 2500,
+        "description": "Fanta."
     },
 ]
 
 
 def seed_db():
-    print("Cargando menú oficial Coffee Beans...")
+    print("Cargando menú oficial Oleilu...")
     db = SessionLocal()
 
     count = 0
     for item in MENU_ITEMS:
         if "description" not in item:
             item["description"] = None
+            
+        if "tags" in item:
+            tags_str = ", ".join(item.pop("tags"))
+            if item["description"]:
+                item["description"] += f" [{tags_str}]"
+            else:
+                item["description"] = f"[{tags_str}]"
 
         producto = models.Product(**item)
         db.add(producto)

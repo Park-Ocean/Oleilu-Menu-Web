@@ -21,7 +21,7 @@ export default function ProductCard({
       ${
         isSpecial
           ? "bg-[#C4899A] border-[#A8707F] shadow-[0_10px_20px_rgba(107,45,62,0.3)]" // Rosa tostado + sombra
-          : "bg-white border-[#DBCBB4] shadow-sm hover:shadow-md"
+          : "bg-white border-[#fdf5cc] shadow-sm hover:shadow-md"
       }
     `}
     >
@@ -53,7 +53,7 @@ export default function ProductCard({
       {/* Badge de "No disponible" */}
       {!product.available && !isAdmin && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-          <span className="bg-[#50768C] text-white text-[10px] font-black px-4 py-2 rounded-full -rotate-6 uppercase shadow-xl tracking-widest border border-white/20">
+          <span className="bg-[#0d2096] text-white text-[10px] font-black px-4 py-2 rounded-full -rotate-6 uppercase shadow-xl tracking-widest border border-white/20">
             No disponible
           </span>
         </div>
@@ -65,12 +65,12 @@ export default function ProductCard({
       >
         <div className="mb-3">
           <h3
-            className={`font-display font-bold text-base mb-1 ${isSpecial ? "text-[#4A1E2D]" : "text-[#50768C]"}`}
+            className={`font-display font-bold text-base mb-1 ${isSpecial ? "text-[#4A1E2D]" : "text-[#0d2096]"}`}
           >
             {product.name}
           </h3>
           <span
-            className={`font-display text-[10px] font-bold uppercase tracking-wider ${isSpecial ? "text-[#50768C]" : "text-[#8D7A6A]"}`}
+            className={`font-display text-[10px] font-bold uppercase tracking-wider ${isSpecial ? "text-[#0d2096]" : "text-[#0d2096]"}`}
           >
             {product.category}
           </span>
@@ -85,7 +85,7 @@ export default function ProductCard({
         )}
 
         <div
-          className={`text-xl font-black ${isSpecial ? "text-[#4A1E2D]" : "text-[#50768C]"}`}
+          className={`text-xl font-black ${isSpecial ? "text-[#4A1E2D]" : "text-[#0d2096]"}`}
         >
           {formatPrice(product.price)}
         </div>
@@ -94,7 +94,7 @@ export default function ProductCard({
       {/* Admin Controls */}
       {isAdmin && (
         <div
-          className={`relative z-10 mt-4 flex gap-2 pt-4 border-t ${isSpecial ? "border-[#A8707F]" : "border-[#DBCBB4]"}`}
+          className={`relative z-10 mt-4 flex gap-2 pt-4 border-t ${isSpecial ? "border-[#A8707F]" : "border-[#fdf5cc]"}`}
         >
           <button
             onClick={() => onToggleStock(product)}

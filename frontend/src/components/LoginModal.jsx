@@ -76,7 +76,7 @@ export default function LoginModal({
       <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl relative overflow-hidden">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-[#8D7A6A] hover:text-[#50768C] transition-colors"
+          className="absolute top-4 right-4 text-[#0d2096] hover:text-[#0d2096] transition-colors"
         >
           <X size={24} />
         </button>
@@ -84,12 +84,12 @@ export default function LoginModal({
         {mode === 'login' ? (
           <>
             <div className="flex justify-center mb-6">
-              <div className="bg-[#F5EBE1] p-4 rounded-full">
-                <KeyRound size={32} className="text-[#50768C]" />
+              <div className="bg-[#fcfcfc] p-4 rounded-full">
+                <KeyRound size={32} className="text-[#0d2096]" />
               </div>
             </div>
 
-            <h2 className="font-display text-2xl font-black text-[#50768C] text-center mb-6">
+            <h2 className="font-display text-2xl font-black text-[#0d2096] text-center mb-6">
               Panel de Control
             </h2>
 
@@ -99,12 +99,12 @@ export default function LoginModal({
                 placeholder="Ingresa la contraseña"
                 value={password}
                 onChange={(e) => onPasswordChange(e.target.value)}
-                className="w-full p-4 border-2 border-[#DBCBB4] rounded-2xl mb-4 focus:outline-none focus:border-[#50768C] transition-colors text-center font-bold tracking-widest"
+                className="w-full p-4 border-2 border-[#fdf5cc] rounded-2xl mb-4 focus:outline-none focus:border-[#0d2096] transition-colors text-center font-bold tracking-widest"
                 autoFocus
               />
               <button
                 type="submit"
-                className="w-full bg-[#50768C] text-white p-4 rounded-2xl font-black shadow-lg active:scale-95 transition-transform"
+                className="w-full bg-[#0d2096] text-white p-4 rounded-2xl font-black shadow-lg active:scale-95 transition-transform"
               >
                 ACCEDER
               </button>
@@ -114,7 +114,7 @@ export default function LoginModal({
               <button
                 onClick={handleRequestRecovery}
                 disabled={loading}
-                className="text-sm font-bold text-[#8D7A6A] hover:text-[#50768C] transition-colors"
+                className="text-sm font-bold text-[#0d2096] hover:text-[#0d2096] transition-colors"
               >
                 {loading ? 'Enviando...' : '¿Olvidaste la Contraseña?'}
               </button>
@@ -123,16 +123,16 @@ export default function LoginModal({
         ) : (
           <>
             <div className="flex justify-center mb-6">
-              <div className="bg-[#F5EBE1] p-4 rounded-full">
-                <ShieldCheck size={32} className="text-[#423838]" />
+              <div className="bg-[#fcfcfc] p-4 rounded-full">
+                <ShieldCheck size={32} className="text-[#0d2096]" />
               </div>
             </div>
 
-            <h2 className="font-display text-xl font-black text-[#423838] text-center mb-2">
+            <h2 className="font-display text-xl font-black text-[#0d2096] text-center mb-2">
               Recuperar Acceso
             </h2>
-            <p className="text-center text-sm text-[#8D7A6A] mb-6">
-              Ingresa el <span className="font-bold text-[#50768C]">PIN de 6 dígitos</span> enviado al correo y define una nueva contraseña.
+            <p className="text-center text-sm text-[#0d2096] mb-6">
+              Ingresa el <span className="font-bold text-[#0d2096]">PIN de 6 dígitos</span> enviado al correo y define una nueva contraseña.
             </p>
 
             <form onSubmit={handleRecoverSubmit}>
@@ -143,7 +143,7 @@ export default function LoginModal({
                 onChange={(e) => setPin(e.target.value)}
                 maxLength={6}
                 required
-                className="w-full p-4 border-2 border-[#DBCBB4] rounded-2xl mb-3 focus:outline-none focus:border-[#423838] transition-colors text-center font-bold tracking-[0.5em]"
+                className="w-full p-4 border-2 border-[#fdf5cc] rounded-2xl mb-3 focus:outline-none focus:border-[#0d2096] transition-colors text-center font-bold tracking-[0.5em]"
                 autoFocus
               />
               <div className="relative mb-4">
@@ -153,12 +153,12 @@ export default function LoginModal({
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   required
-                  className="w-full p-4 border-2 border-[#DBCBB4] rounded-2xl focus:outline-none focus:border-[#423838] transition-colors text-center font-bold"
+                  className="w-full p-4 border-2 border-[#fdf5cc] rounded-2xl focus:outline-none focus:border-[#0d2096] transition-colors text-center font-bold"
                 />
                 <button
                   type="button"
                   onClick={() => setShowNewPassword(!showNewPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8D7A6A] hover:text-[#423838] transition-colors p-2"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0d2096] hover:text-[#0d2096] transition-colors p-2"
                   title={showNewPassword ? "Ocultar Contraseña" : "Ver Contraseña"}
                 >
                   {showNewPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -167,7 +167,7 @@ export default function LoginModal({
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#423838] text-white p-4 rounded-2xl font-black shadow-lg active:scale-95 transition-transform disabled:opacity-50"
+                className="w-full bg-[#0d2096] text-white p-4 rounded-2xl font-black shadow-lg active:scale-95 transition-transform disabled:opacity-50"
               >
                 {loading ? 'MODIFICANDO...' : 'CAMBIAR CONTRASEÑA'}
               </button>
@@ -176,7 +176,7 @@ export default function LoginModal({
             <div className="mt-6 text-center">
               <button
                 onClick={() => setMode('login')}
-                className="text-sm font-bold text-[#8D7A6A] hover:text-[#423838] transition-colors"
+                className="text-sm font-bold text-[#0d2096] hover:text-[#0d2096] transition-colors"
               >
                 Volver a Iniciar Sesión
               </button>

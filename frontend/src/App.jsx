@@ -108,7 +108,7 @@ export default function App() {
       Swal.fire({
         icon: "error",
         title: "PIN Incorrecto",
-        confirmButtonColor: "#50768C",
+        confirmButtonColor: "#0d2096",
       });
     }
   };
@@ -134,7 +134,7 @@ export default function App() {
       Swal.fire({
         icon: "warning",
         title: "Por favor completa todos los campos",
-        confirmButtonColor: "#50768C",
+        confirmButtonColor: "#0d2096",
       });
       return;
     }
@@ -155,7 +155,7 @@ export default function App() {
         icon: "error",
         title: "Error al guardar",
         text: error.message,
-        confirmButtonColor: "#423838",
+        confirmButtonColor: "#0d2096",
       });
     }
   };
@@ -166,8 +166,8 @@ export default function App() {
       text: "Esta acción no se puede deshacer",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#50768C",
-      cancelButtonColor: "#8D7A6A",
+      confirmButtonColor: "#0d2096",
+      cancelButtonColor: "#0d2096",
       confirmButtonText: "Sí, eliminar",
       cancelButtonText: "Cancelar",
     });
@@ -198,8 +198,8 @@ export default function App() {
       showCancelButton: true,
       confirmButtonText: 'Guardar cambios',
       cancelButtonText: 'Cancelar',
-      confirmButtonColor: '#50768C',
-      cancelButtonColor: '#8D7A6A',
+      confirmButtonColor: '#0d2096',
+      cancelButtonColor: '#0d2096',
       inputValidator: (value) => {
         if (!value || value.trim() === '') {
           return 'Debes ingresar un nombre válido'
@@ -234,7 +234,7 @@ export default function App() {
           icon: 'error',
           title: 'Error al renombrar',
           text: error.message || 'No se pudo cambiar el nombre de la categoría',
-          confirmButtonColor: '#423838'
+          confirmButtonColor: '#0d2096'
         });
       }
     }
@@ -248,12 +248,12 @@ export default function App() {
     const { value: email, isConfirmed } = await Swal.fire({
       title: 'Correo de Recuperación',
       html: `
-        <div id="email-display-container" class="flex items-center justify-between bg-[#F5EBE1] p-4 rounded-xl mb-4 text-left">
+        <div id="email-display-container" class="flex items-center justify-between bg-[#fcfcfc] p-4 rounded-xl mb-4 text-left">
            <div>
-             <span class="block text-xs text-[#8D7A6A] font-bold uppercase tracking-wider">Correo Actual</span>
-             <span id="current-email-text" class="text-[#50768C] font-black" style="word-break: break-all;">${currentEmail}</span>
+             <span class="block text-xs text-[#0d2096] font-bold uppercase tracking-wider">Correo Actual</span>
+             <span id="current-email-text" class="text-[#0d2096] font-black" style="word-break: break-all;">${currentEmail}</span>
            </div>
-           <button type="button" id="edit-email-btn" class="p-2 bg-white rounded-lg shadow text-[#8D7A6A] hover:text-[#50768C] transition-colors" title="Editar Correo">
+           <button type="button" id="edit-email-btn" class="p-2 bg-white rounded-lg shadow text-[#0d2096] hover:text-[#0d2096] transition-colors" title="Editar Correo">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
            </button>
         </div>
@@ -264,7 +264,7 @@ export default function App() {
       showCancelButton: true,
       confirmButtonText: 'Guardar',
       cancelButtonText: 'Cancelar',
-      confirmButtonColor: '#50768C',
+      confirmButtonColor: '#0d2096',
       didOpen: () => {
         const editBtn = document.getElementById('edit-email-btn');
         const displayContainer = document.getElementById('email-display-container');
@@ -305,7 +305,7 @@ export default function App() {
           icon: 'success',
           title: 'Correo Configurado',
           text: `Se usarán \n${email}\n para recuperar tu acceso.`,
-          confirmButtonColor: '#423838'
+          confirmButtonColor: '#0d2096'
         });
       } catch (error) {
         Swal.fire({ icon: 'error', title: 'Error', text: error.message });
@@ -315,7 +315,7 @@ export default function App() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5EBE1] to-[#EBDCCA]">
+    <div className="min-h-screen bg-gradient-to-br from-[#fcfcfc] to-[#fdf5cc]">
       <Header
         isAdmin={isAdmin}
         onLogoClick={handleLogoClick}
@@ -340,11 +340,11 @@ export default function App() {
                   px-5 py-2.5 rounded-full text-xs font-display font-bold whitespace-nowrap transition-all border
                   ${isActive
                     ? isSpecialBtn
-                      ? "bg-[#E09F7D] text-white border-[#E09F7D] shadow-lg scale-105"
-                      : "bg-[#50768C] text-white border-[#50768C] shadow-lg"
+                      ? "bg-[#0d2096] text-white border-[#0d2096] shadow-lg scale-105"
+                      : "bg-[#0d2096] text-white border-[#0d2096] shadow-lg"
                     : isSpecialBtn
-                      ? "bg-[#FAEBE3] text-[#E09F7D] border-[#F0CDBA] hover:bg-[#F2D8C9]"
-                      : "bg-white text-[#50768C] border-[#DBCBB4] hover:bg-[#F5EBE1]"
+                      ? "bg-[#fcfcfc] text-[#0d2096] border-[#fdf5cc] hover:bg-[#fdf5cc]"
+                      : "bg-white text-[#0d2096] border-[#fdf5cc] hover:bg-[#fcfcfc]"
                   }
                 `}
                 style={isActive && isSpecialBtn ? { clipPath: 'inset(0 round 9999px)' } : {}}
@@ -384,7 +384,7 @@ export default function App() {
                       className="p-1 hover:bg-black/10 rounded-full transition-colors cursor-pointer"
                       title={`Renombrar categoría ${cat}`}
                     >
-                      <Edit3 size={14} className={isActive ? (isSpecialBtn ? 'text-white' : 'text-white/80') : (isSpecialBtn ? 'text-[#E09F7D]' : 'text-[#50768C]')} />
+                      <Edit3 size={14} className={isActive ? (isSpecialBtn ? 'text-white' : 'text-white/80') : (isSpecialBtn ? 'text-[#0d2096]' : 'text-[#0d2096]')} />
                     </div>
                   )}
                 </div>
@@ -397,7 +397,7 @@ export default function App() {
           <div className="flex gap-2 mb-6">
             <button
               onClick={() => openEditor({})}
-              className="flex-1 bg-gradient-to-r from-[#50768C] to-[#3B596A] text-white p-4 rounded-2xl font-black shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+              className="flex-1 bg-gradient-to-r from-[#0d2096] to-[#0a1975] text-white p-4 rounded-2xl font-black shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
             >
               <Plus size={20} />
               NUEVO PRODUCTO
@@ -405,7 +405,7 @@ export default function App() {
             <button
               onClick={handleConfigureEmail}
               title="Configurar Correo de Recuperación"
-              className="bg-[#DBCBB4] text-[#50768C] p-4 rounded-2xl font-black shadow hover:bg-[#CBB69C] transition-all flex items-center justify-center"
+              className="bg-[#fdf5cc] text-[#0d2096] p-4 rounded-2xl font-black shadow hover:bg-[#e6e1c8] transition-all flex items-center justify-center"
             >
               <Settings size={20} />
             </button>
@@ -414,12 +414,12 @@ export default function App() {
 
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="animate-spin text-[#50768C]" size={40} />
+            <Loader2 className="animate-spin text-[#0d2096]" size={40} />
           </div>
         ) : items.length === 0 ? (
           <div className="text-center py-20">
-            <List size={48} className="mx-auto text-[#8D7A6A] mb-4" />
-            <p className="text-[#8D7A6A] font-bold">
+            <List size={48} className="mx-auto text-[#0d2096] mb-4" />
+            <p className="text-[#0d2096] font-bold">
               No hay productos en esta categoría
             </p>
           </div>
