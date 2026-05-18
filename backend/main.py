@@ -9,7 +9,7 @@ from database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Coffee Beans API")
+app = FastAPI(title="Oleilu API")
 
 # CORS configuration
 origins = [

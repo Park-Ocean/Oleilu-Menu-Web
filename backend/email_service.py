@@ -17,14 +17,14 @@ def send_recovery_email(receiver_email: str, pin: str):
         return True
 
     message = MIMEMultipart("alternative")
-    message["Subject"] = "Recuperación de Acceso - Murta Menú"
+    message["Subject"] = "Recuperación de Acceso - Oleilu"
     message["From"] = sender_email
     message["To"] = receiver_email
 
     text = f"""\
     Hola,
     
-    Se ha solicitado recuperar el acceso al panel de administración de Murta Menú.
+    Se ha solicitado recuperar el acceso al panel de administración de Oleilu.
     Tu PIN temporal es: {pin}
     
     Este PIN es válido por 15 minutos. Si no solicitaste este cambio, simplemente ignora este correo. La contraseña actual sigue siendo válida.
@@ -34,7 +34,7 @@ def send_recovery_email(receiver_email: str, pin: str):
     <html>
       <body>
         <p>Hola,</p>
-        <p>Se ha solicitado recuperar el acceso al panel de administración de <b>Murta Menú</b>.</p>
+        <p>Se ha solicitado recuperar el acceso al panel de administración de <b>Oleilu</b>.</p>
         <p>Tu PIN temporal es: <b style="font-size: 24px;">{pin}</b></p>
         <p>Este PIN es válido por 15 minutos.</p>
         <p><small>Si no solicitaste este cambio, simplemente ignora este correo. La contraseña actual sigue siendo válida.</small></p>

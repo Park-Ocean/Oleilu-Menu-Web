@@ -10,7 +10,7 @@ resolution-markers = [
 [manifest]
 members = [
     "backend",
-    "murta-menu",
+    "oleilu-menu",
 ]
 
 [[package]]
@@ -556,7 +556,7 @@ wheels = [
 ]
 
 [[package]]
-name = "murta-menu"
+name = "oleilu-menu"
 version = "0.1.0"
 source = { virtual = "." }
 
